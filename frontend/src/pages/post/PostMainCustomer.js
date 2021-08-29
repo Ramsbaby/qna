@@ -9,6 +9,9 @@ import "./Post.css";
 const PostMainCustomer = (props) => {
   const [dataList, setDataList] = useState([]);
   const [userId, setUserId] = useState("");
+  const [isIdError, setIsIdError] = useState(false);
+
+  const idRegex = new RegExp("^[a-zA-Z0-9]{4,12}$");
 
   const onChangeUserId = (e) => {
     setUserId(e.target.value);
@@ -19,6 +22,13 @@ const PostMainCustomer = (props) => {
   };
 
   const getInquerysList = () => {
+    setIsIdError(false);
+    if (!idRegex.test(userId)) {
+      setIsIdError(true);
+      console.log(userId);
+      return;
+    }
+
     axios
       .get(`http://localhost:8000/api/myInquerys`, {
         headers: {
@@ -29,6 +39,7 @@ const PostMainCustomer = (props) => {
         setDataList(response.data.response);
       })
       .catch((Error) => {
+        console.log(Error);
         if (!Error.response.data.success) {
           alert(Error.response.data.error.message);
         }
@@ -58,7 +69,13 @@ const PostMainCustomer = (props) => {
         ></input>
         <button onClick={getInquerysList}>문의글 검색</button>
       </div>
-
+      {isIdError ? (
+        <span className="redText">
+          아이디는 4~12자의 영문 대소문자와 숫자로만 입력해 주세요.
+        </span>
+      ) : (
+        <></>
+      )}
       <div className="title">고객 문의 목록 (고객 전용)</div>
       <CommonTable
         headersName={[
