@@ -1,0 +1,17 @@
+.customerBtn,
+.consultantBtn,
+.historyBtn {
+  width: 250px;
+  height: 250px;
+  font-size: 3em;
+}
+.homepage {
+  position: absolute;
+  left: 25%;
+  top: 40%;
+}
+
+.consultantBtn,
+.historyBtn {
+  margin-left: 50px;
+}

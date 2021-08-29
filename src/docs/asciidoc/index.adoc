@@ -1,0 +1,131 @@
+ifndef::snippets[]
+:snippets: ../../../build/generated-snippets
+endif::[]
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 4
+:sectlinks:
+:site-url: /build/asciidoc/html5/
+
+= Qna RestAPI Server
+
+== QnA 관리
+
+=== 1.고객 - 문의글등록 API
+
+curl)
+include::{snippets}/addInquery/curl-request.adoc[]
+
+==== request fields
+
+include::{snippets}/addInquery/request-fields.adoc[]
+
+==== request body
+
+include::{snippets}/addInquery/request-body.adoc[]
+
+==== response body
+
+include::{snippets}/addInquery/response-fields.adoc[]
+
+
+=== 2.고객 - 본인 문의글 전체 확인 API
+
+curl)
+include::{snippets}/getAllInquerys/curl-request.adoc[]
+
+==== request header
+
+include::{snippets}/getAllInquerys/request-headers.adoc[]
+
+==== response body
+
+include::{snippets}/getAllInquerys/response-fields.adoc[]
+
+
+=== 3.상담사 - 회원가입 API
+
+curl)
+include::{snippets}/addUser/curl-request.adoc[]
+
+==== request fields
+
+include::{snippets}/addUser/request-fields.adoc[]
+
+==== request body
+
+include::{snippets}/addUser/request-body.adoc[]
+
+==== response body
+
+include::{snippets}/addUser/response-fields.adoc[]
+
+
+=== 4.상담사 - 로그인
+
+curl)
+include::{snippets}/loginUser/curl-request.adoc[]
+
+==== request fields
+
+include::{snippets}/loginUser/request-fields.adoc[]
+
+==== request body
+
+include::{snippets}/loginUser/request-body.adoc[]
+
+==== response body
+
+include::{snippets}/loginUser/response-fields.adoc[]
+
+
+=== 5.상담사 - 문의글 전체 확인 API
+
+curl)
+include::{snippets}/getAllInquerys/curl-request.adoc[]
+
+==== response body
+
+include::{snippets}/getAllInquerys/response-fields.adoc[]
+
+
+=== 6.상담사 - 문의글 - 본인으로 지정 API
+
+curl)
+include::{snippets}/choiceInquery/curl-request.adoc[]
+
+==== path parameters
+
+include::{snippets}/choiceInquery/path-parameters.adoc[]
+
+==== request header
+
+include::{snippets}/choiceInquery/request-headers.adoc[]
+
+==== response body
+
+include::{snippets}/choiceInquery/response-fields.adoc[]
+
+
+=== 7.상담사 - 문의글 - 답변등록
+
+curl)
+include::{snippets}/addAnswers/curl-request.adoc[]
+
+==== request header
+
+include::{snippets}/addAnswers/request-headers.adoc[]
+
+==== request fields
+
+include::{snippets}/addAnswers/request-fields.adoc[]
+
+==== request body
+
+include::{snippets}/addAnswers/request-body.adoc[]
+
+==== response body
+
+include::{snippets}/addAnswers/response-fields.adoc[]

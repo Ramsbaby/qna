@@ -1,0 +1,32 @@
+unKnown:
+  code: "-9999"
+  msg: "An unknown error has occurred."
+userNotFound:
+  code: "-1000"
+  msg: "This member not exist"
+
+resourceNotExist:
+  code: "404"
+  msg: "The resource does not exist."
+
+answerIsNotExist:
+  code: "-1001"
+  msg: "The Answer does not exist."
+counselorIdExist:
+  code: "-1002"
+  msg: "The Counselor's ID already exists."
+counselorIdIsNotExist:
+  code: "-1003"
+  msg: "The Counselor's ID is not exists."
+counselorIdNotMatche:
+  code: "-1004"
+  msg: "Counselor's ID do not match."
+counselorLoginFailure:
+  code: "-1005"
+  msg: "The password does not match or the ID does not exist."
+inqueryIdIsNotExist:
+  code: "-1006"
+  msg: "This inquiry does not exist."
+forbiddenWord:
+  code: "-1008"
+  msg: "forbidden words ({0}) are included in the input."

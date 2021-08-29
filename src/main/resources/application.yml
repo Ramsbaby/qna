@@ -1,0 +1,36 @@
+spring:
+  h2:
+    console:
+      enabled: true
+  datasource:
+    url: jdbc:h2:mem:~/h2-console;
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+    generate-ddl: true
+    properties:
+      format_sql: true
+      hibernate:
+        show-sql: true
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
+  messages:
+    basename: i18n/exception
+    encoding: UTF-8
+
+server:
+  port: 8000
+
+logging:
+  level:
+    com.kakaopay.mbs: DEBUG
+    root: info
+    org:
+      hibernate:
+        type:
+          descriptor:
+            sql: trace
+        SQL: DEBUG

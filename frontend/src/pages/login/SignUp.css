@@ -1,0 +1,29 @@
+.signuppage {
+  text-align: center;
+  margin-top: 300px;
+}
+
+div {
+  margin-top: 10px;
+}
+
+input {
+  margin-left: 10px;
+}
+
+button {
+  margin-top: 10px;
+}
+
+.redText {
+  font-size: 0.8em;
+  color: red;
+}
+
+.cancelBtn {
+  margin-top: 30px;
+}
+
+.signupBtn {
+  margin-left: 10px;
+}
