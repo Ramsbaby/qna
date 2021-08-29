@@ -74,7 +74,6 @@ public class CustomerServiceTest {
         assertEquals(customException.getMessage(), "INQUERY_ID_IS_NOT_EXIST");
     }
 
-
     //질문 등록 하기
     InquerysEntity insertInquery(String userId) {
         InqueryModel inqueryModel = InqueryModel.builder()

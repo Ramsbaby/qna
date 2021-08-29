@@ -10,7 +10,6 @@ import com.ramsbaby.qna.qnaMgmt.model.UserModel;
 import com.ramsbaby.qna.qnaMgmt.repository.AnswersRepo;
 import com.ramsbaby.qna.qnaMgmt.repository.InquerysRepo;
 import com.ramsbaby.qna.qnaMgmt.repository.UserRepo;
-import com.ramsbaby.qna.qnaMgmt.support.Base64Util;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;

@@ -27,6 +27,7 @@ counselorLoginFailure:
 inqueryIdIsNotExist:
   code: "-1006"
   msg: "This inquiry does not exist."
+
 forbiddenWord:
   code: "-1008"
   msg: "forbidden words ({0}) are included in the input."

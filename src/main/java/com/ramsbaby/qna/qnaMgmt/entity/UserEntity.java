@@ -3,12 +3,10 @@ package com.ramsbaby.qna.qnaMgmt.entity;
 import com.ramsbaby.qna.qnaMgmt.entity.common.CommonEntity;
 import com.ramsbaby.qna.qnaMgmt.entity.listener.MyEntitiyListener;
 import com.ramsbaby.qna.qnaMgmt.model.UserModel;
-import com.ramsbaby.qna.qnaMgmt.support.Base64Util;
 import lombok.*;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
-import java.util.Base64;
 import java.util.List;
 
 
@@ -27,17 +25,13 @@ import java.util.List;
 @EntityListeners(value = {MyEntitiyListener.class, AuditingEntityListener.class})
 public class UserEntity extends CommonEntity {
 
-    @Id
-    private String id;
-
-    private String name;
-
-    private String role;
-
-    private String password;
-
     @OneToMany(mappedBy = "users")
     List<AnswersEntity> answersList;
+    @Id
+    private String id;
+    private String name;
+    private String role;
+    private String password;
 
     public UserEntity(String id, String name, String role, String password) {
         this.id = id;

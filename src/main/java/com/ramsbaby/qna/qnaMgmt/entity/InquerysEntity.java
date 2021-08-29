@@ -23,20 +23,17 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 @EntityListeners(value = {MyEntitiyListener.class, QnaHistoryInquerysListener.class})
 public class InquerysEntity extends CommonEntity {
+    @OneToMany(mappedBy = "inquerys")
+    List<AnswersEntity> answersList;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-
     private String userId;
     private String title;
     private String content;
     private String counselorId;
-
     @Column(name = "is_answered", length = 1, columnDefinition = "varchar(1)")
     private String isAnswered = "N";
-
-    @OneToMany(mappedBy = "inquerys")
-    List<AnswersEntity> answersList;
 
     //상담사ID 포함
     private InquerysEntity(String userId, String title, String content, String counselorId) {

@@ -4,8 +4,6 @@ import com.ramsbaby.qna.qnaMgmt.entity.UserEntity;
 import com.ramsbaby.qna.qnaMgmt.support.Base64Util;
 import lombok.*;
 
-import java.util.Base64;
-
 /**
  * @author : RAMSBABY
  * @date : 2021-08-23 오후 10:20
