@@ -4,7 +4,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ramsbaby.qna.qnaMgmt.model.AnswerModel;
 import com.ramsbaby.qna.qnaMgmt.model.InqueryModel;
 import com.ramsbaby.qna.qnaMgmt.model.UserModel;
+import com.ramsbaby.qna.qnaMgmt.service.counselor.CounselorService;
 import com.ramsbaby.qna.qnaMgmt.service.counselor.CounselorServiceImpl;
+import com.ramsbaby.qna.qnaMgmt.service.customer.CustomerService;
 import com.ramsbaby.qna.qnaMgmt.service.customer.CustomerServiceImpl;
 import com.ramsbaby.qna.qnaMgmt.support.Base64Util;
 import org.junit.jupiter.api.BeforeEach;
@@ -57,10 +59,10 @@ public class QnaControllerTest {
     private MockMvc mockMvc;
 
     @Autowired
-    private CounselorServiceImpl counselorService;
+    private CounselorService counselorService;
 
     @Autowired
-    private CustomerServiceImpl customerService;
+    private CustomerService customerService;
 
     @Autowired
     private ObjectMapper objectMapper;

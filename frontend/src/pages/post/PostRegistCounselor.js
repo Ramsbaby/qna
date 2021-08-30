@@ -42,7 +42,6 @@ const PostRegistCounselor = ({ history, location: { state } }) => {
         }
       )
       .then((response) => {
-        console.log(response);
         if (response.data.success) {
           alert("답변 등록이 완료되었습니다.");
           history.goBack();
@@ -66,7 +65,6 @@ const PostRegistCounselor = ({ history, location: { state } }) => {
       })
       .then((response) => {
         //답변글이 있는 경우 표현.
-        console.log(response);
         setTitle(response.data.response.title);
         setContent(response.data.response.content);
         // setDataList(response.data.response);

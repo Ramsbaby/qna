@@ -39,6 +39,8 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'net.rakugakibox.util:yaml-resource-bundle:1.2'
     implementation 'junit:junit:4.12'
+    implementation 'org.apache.commons:commons-lang3:3.6'
+
 
     compileOnly 'org.projectlombok:lombok'
     runtimeOnly 'com.h2database:h2'

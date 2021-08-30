@@ -6,7 +6,6 @@ const PostView = ({ history, location: { state }, match }) => {
 
   useEffect(() => {
     setData(state);
-    console.log(state);
   }, []);
 
   return (

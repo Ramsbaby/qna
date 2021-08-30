@@ -36,10 +36,8 @@ const SignUp = (props) => {
 
     const idRegex = new RegExp("^[a-zA-Z0-9]{4,12}$");
     const passwordRegex = new RegExp("^(?=.*[0-9])(?=.*[a-zA-z]).{8,15}$");
-    console.log(userId);
     if (!idRegex.test(userId)) {
       setIsIdError(true);
-      console.log(userId);
       return;
     }
 
@@ -61,7 +59,6 @@ const SignUp = (props) => {
         password: userPassword,
       })
       .then((response) => {
-        console.log(response);
         if (response.data.success) {
           alert("회원가입이 완료되었습니다.");
           props.history.push("/login");

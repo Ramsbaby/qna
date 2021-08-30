@@ -25,7 +25,6 @@ const PostMainCustomer = (props) => {
     setIsIdError(false);
     if (!idRegex.test(userId)) {
       setIsIdError(true);
-      console.log(userId);
       return;
     }
 

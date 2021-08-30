@@ -7,7 +7,6 @@ const PostViewAnswer = ({ history, location: { state }, match }) => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
 
-  console.log(state);
   const getAnswer = () => {
     axios
       .get(`http://localhost:8000/api/myAnswer/${state.id}`, {
@@ -17,7 +16,6 @@ const PostViewAnswer = ({ history, location: { state }, match }) => {
       })
       .then((response) => {
         //답변글이 있는 경우 표현.
-        console.log(response.data.response);
         setData(response.data.response);
         // setDataList(response.data.response);
       })

@@ -32,20 +32,16 @@ public class CounselorServiceImpl implements CounselorService {
     //상담사 - 회원가입
     @Transactional
     public UserModel saveUser(UserModel userModel) {
-        UserModel resultModel;
-        UserEntity user = UserEntity.create(userModel);
-        Optional<UserEntity> isCounselorExist = userRepo.findById(user.getId());
+        boolean hasUser = userRepo.existsById(userModel.getId());
 
-        if (isCounselorExist.isPresent()) {//이미 있는 상담사 ID인 경우
+        if(hasUser) {
             throw new CCounselorIdExistException(ExceptionType.COUNSELOR_ID_EXIST);
-        } else {
-            resultModel = UserModel.of(userRepo.save(user));
         }
-        return resultModel;
+
+        return UserModel.of(userRepo.save(UserEntity.create(userModel)));
     }
 
     //상담사 - 로그인
-    @Transactional
     public UserModel getUser(UserModel userModel) {
         UserModel resultModel;
         Optional<UserEntity> isCounselorExist =
@@ -60,9 +56,8 @@ public class CounselorServiceImpl implements CounselorService {
     }
 
     //상담사 - 문의글 전체 확인(답변 미등록 상태만 조회)
-    @Transactional
     public List<InqueryModel> getAllInquerys() {
-        List<InquerysEntity> inqueryAllList = inquerysRepo.findAllByIsAnswered("N", Sort.by(Sort.Direction.DESC, "createdAt"));
+        List<InquerysEntity> inqueryAllList = inquerysRepo.findAllByIsAnswered("N", Sort.by(Sort.Direction.ASC, "createdAt"));
         return InqueryModel.setEntityList(inqueryAllList);
     }
 
@@ -90,10 +85,7 @@ public class CounselorServiceImpl implements CounselorService {
                 .orElseThrow(() -> new CInqueryIdIsNotExistException(ExceptionType.INQUERY_ID_IS_NOT_EXIST));
 
         //지정 상담사가 없거나, 지정 상담사가 본인이 아닌 경우 에러 발생
-        if (inquery.getCounselorId() == null ||
-                inquery.getCounselorId().equals(counselorId) == false) {
-            throw new CCounselorIdNotMatcheException(ExceptionType.COUNSELOR_ID_NOT_MATCHE);
-        }
+        inquery.validCounselor(counselorId);
 
         UserEntity user = userRepo.findById(counselorId)
                 .orElseThrow(() -> new CCounselorIdIsNotExistException(ExceptionType.COUNSELOR_ID_IS_NOT_EXIST));

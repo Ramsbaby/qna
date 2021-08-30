@@ -1,10 +1,13 @@
 package com.ramsbaby.qna.qnaMgmt.entity;
 
+import com.ramsbaby.qna.advice.customException.CCounselorIdNotMatcheException;
+import com.ramsbaby.qna.advice.customException.ExceptionType;
 import com.ramsbaby.qna.qnaMgmt.entity.common.CommonEntity;
 import com.ramsbaby.qna.qnaMgmt.entity.listener.MyEntitiyListener;
 import com.ramsbaby.qna.qnaMgmt.entity.listener.QnaHistoryInquerysListener;
 import com.ramsbaby.qna.qnaMgmt.model.InqueryModel;
 import lombok.*;
+import org.apache.commons.lang3.StringUtils;
 
 import javax.persistence.*;
 import java.util.List;
@@ -45,5 +48,11 @@ public class InquerysEntity extends CommonEntity {
 
     public static InquerysEntity create(InqueryModel inqueryModel) {
         return new InquerysEntity(inqueryModel.getUserId(), inqueryModel.getTitle(), inqueryModel.getContent(), inqueryModel.getCounselorId());
+    }
+
+    public void validCounselor(String counselorId){
+        if (StringUtils.isEmpty(this.counselorId) || counselorId.equals(this.counselorId) == false){
+            throw new CCounselorIdNotMatcheException(ExceptionType.COUNSELOR_ID_NOT_MATCHE);
+        }
     }
 }

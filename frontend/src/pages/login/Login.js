@@ -7,15 +7,12 @@ const Login = (props) => {
   const [userPw, setUserPw] = useState("");
 
   const onClickLogin = () => {
-    console.log(props);
-
     axios
       .post(" http://localhost:8000/api/userLogin", {
         id: userId,
         password: userPw,
       })
       .then((response) => {
-        console.log(response);
         if (response.data.success) {
           alert("로그인 성공");
           localStorage.setItem(
@@ -35,7 +32,6 @@ const Login = (props) => {
   };
 
   const onClickSignUpBtn = () => {
-    console.log(props);
     props.history.push("/signUp");
   };
 

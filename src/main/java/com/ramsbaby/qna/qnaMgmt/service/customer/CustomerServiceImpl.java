@@ -27,6 +27,7 @@ public class CustomerServiceImpl implements CustomerService {
     private final AnswersRepo answersRepo;
 
     //고객 - 문의글 등록
+    @Transactional
     public InqueryModel saveInquery(InqueryModel inqueryModel) {
         InquerysEntity inquery = InquerysEntity.create(inqueryModel);
         return InqueryModel.of(inquerysRepo.save(inquery));
@@ -34,7 +35,7 @@ public class CustomerServiceImpl implements CustomerService {
 
     //고객 - 본인 문의글 전체 확인
     public List<InqueryModel> getAllMyInquerys(String userId) {
-        List<InquerysEntity> inqueryAllList = inquerysRepo.findAllByUserId(userId, Sort.by(Sort.Direction.DESC, "createdAt"));
+        List<InquerysEntity> inqueryAllList = inquerysRepo.findAllByUserId(userId, Sort.by(Sort.Direction.ASC, "createdAt"));
         if (inqueryAllList.isEmpty()) {
             throw new CInqueryIdIsNotExistException(ExceptionType.INQUERY_ID_IS_NOT_EXIST);
         }
@@ -42,7 +43,6 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     //고객 - 내 답변 확인
-    @Transactional
     public AnswerModel getMyAnswer(String counselorId, Long inqueryId) {
         InquerysEntity inquerys = inquerysRepo.findById(inqueryId)
                 .orElseThrow(() -> new CInqueryIdIsNotExistException(ExceptionType.INQUERY_ID_IS_NOT_EXIST));

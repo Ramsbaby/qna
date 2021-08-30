@@ -37,7 +37,6 @@ const PostRegistCustomer = ({ history, location: { state }, match }) => {
         content: content,
       })
       .then((response) => {
-        console.log(response);
         if (response.data.success) {
           alert("문의글 등록이 완료되었습니다.");
           history.goBack();

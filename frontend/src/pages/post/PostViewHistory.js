@@ -13,7 +13,6 @@ const PostViewHistory = ({ history, match }) => {
       .get(`http://localhost:8000/api/history`)
       .then((response) => {
         //답변글이 있는 경우 표현.
-        console.log(response.data.response);
         setDataList(response.data.response);
       })
       .catch((Error) => {

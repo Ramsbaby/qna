@@ -25,10 +25,12 @@ public class QnaHistoryInquerysListener {
         qnaHistory.setInqueryId(inquerys.getId());
         qnaHistory.setUserId(inquerys.getUserId());
         qnaHistory.setCounselorId(inquerys.getCounselorId());
-        if(inquerys.getAnswersList() == null || inquerys.getAnswersList().size() == 0)
+        if(inquerys.getAnswersList() == null || inquerys.getAnswersList().size() == 0){
             qnaHistory.setAnswerId(null);
-        else
+        }
+        else {
             qnaHistory.setAnswerId(inquerys.getAnswersList().get(0).getId());
+        }
         qnaHistory.setIsAnswered(inquerys.getIsAnswered());
 
         qnaHistory.setSavedArea("INQUERYS");

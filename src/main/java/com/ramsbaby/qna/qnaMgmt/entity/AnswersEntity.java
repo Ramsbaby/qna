@@ -22,10 +22,10 @@ public class AnswersEntity extends CommonEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "inquery_id", nullable = false)
-    InquerysEntity inquerys;
+    private InquerysEntity inquerys;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "counselor_id", nullable = false)
-    UserEntity users;
+    private UserEntity users;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;

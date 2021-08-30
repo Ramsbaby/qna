@@ -11,7 +11,7 @@ import java.util.Optional;
  * @date : 2021-08-23 오후 8:35
  */
 @Repository
-public interface UserRepo extends JpaRepository<UserEntity, Long> {
+public interface UserRepo extends JpaRepository<UserEntity, String> {
     Optional<UserEntity> findById(String userId);
 
     Optional<UserEntity> findByIdAndPassword(String id, String password);
